@@ -40,6 +40,9 @@ def recommend_jobs(user_input, df, tfidf_matrix):
 
     # Ambil pekerjaan yang sesuai berdasarkan indeks
     recommendations = df.iloc[similar_indices]
+
+    # Tambahkan kolom cosine similarity ke DataFrame rekomendasi
+    recommendations['cosine_similarity'] = cosine_similarities[similar_indices]
     return recommendations
 
 def main():
